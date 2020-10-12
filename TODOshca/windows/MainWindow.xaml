@@ -14,23 +14,23 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="120"/>
-            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
             <RowDefinition Height="100"/>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <TextBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="5" 
+        <TextBox Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="6" 
                  Background="LightYellow" FontSize="15" AcceptsReturn="True" FontFamily="Comic Sans MS" x:Name="TextNote"/>
 
         <Button Content="сохранить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="0" Click="SaveNote" />
         <Button Content="добавить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="1" Click="AddNote" />
 
-        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Name="OtherNotes">
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Name="OtherNotes">
             <TextBox IsReadOnly="True" FontSize="15" HorizontalContentAlignment="Center" FontFamily="Comic Sans MS" >Заметки</TextBox>
         </StackPanel>
     </Grid>

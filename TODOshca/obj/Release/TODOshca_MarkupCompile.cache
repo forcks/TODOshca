@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\projects\c#\TODOshca\TODOshca\obj\Debug\
+D:\projects\c#\TODOshca\TODOshca\obj\Release\
 TODOshca
 none
 false
-DEBUG;TRACE
+TRACE
 D:\projects\c#\TODOshca\TODOshca\App.xaml
 2-1312121105
 
-1075740228
+9918099595
 13-1505183044
 windows\addNote.xaml;windows\MainWindow.xaml;
 
-True
+False
 

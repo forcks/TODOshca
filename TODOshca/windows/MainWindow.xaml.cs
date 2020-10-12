@@ -111,6 +111,9 @@ namespace TODOshca
             textNote = TextNote.Text;
 
             saveFile(textNote,pathFolderNote, temporaryData.ActiveNote);
+
+            checkFolder(_data.PathFolder);
+            createButtons(_data.PathFolder);
         }
 
         private void AddNote(object sender, RoutedEventArgs e)
@@ -170,8 +173,6 @@ namespace TODOshca
             string fileName = (sender as Button).Content.ToString();
             temporaryData.ActiveNote = fileName;
             tempData.SaveActiveNote();
-            MainWindow mainWindow = new MainWindow();
-
             LoadDataInNote(pathFolderNote, temporaryData.ActiveNote);
         }
         #endregion

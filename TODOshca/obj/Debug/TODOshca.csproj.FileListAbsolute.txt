@@ -13,7 +13,5 @@ D:\projects\c#\TODOshca\TODOshca\obj\Debug\TODOshca.exe
 D:\projects\c#\TODOshca\TODOshca\obj\Debug\TODOshca.pdb
 D:\projects\c#\TODOshca\TODOshca\obj\Debug\windows\MainWindow.g.cs
 D:\projects\c#\TODOshca\TODOshca\obj\Debug\windows\MainWindow.baml
-D:\projects\c#\TODOshca\TODOshca\obj\Debug\windows\Notes.g.cs
-D:\projects\c#\TODOshca\TODOshca\obj\Debug\windows\Notes.baml
 D:\projects\c#\TODOshca\TODOshca\obj\Debug\windows\addNote.g.cs
 D:\projects\c#\TODOshca\TODOshca\obj\Debug\windows\addNote.baml

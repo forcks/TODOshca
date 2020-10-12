@@ -60,9 +60,6 @@
     <Compile Include="windows\addNote.xaml.cs">
       <DependentUpon>addNote.xaml</DependentUpon>
     </Compile>
-    <Compile Include="windows\Notes.xaml.cs">
-      <DependentUpon>Notes.xaml</DependentUpon>
-    </Compile>
     <Compile Include="workWithFiles.cs" />
     <Page Include="windows\addNote.xaml">
       <SubType>Designer</SubType>
@@ -80,10 +77,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="windows\Notes.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
