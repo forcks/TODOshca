@@ -25,10 +25,13 @@
         </Grid.RowDefinitions>
 
         <TextBox Grid.Row="1" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="5" 
-                 Background="LightYellow" FontSize="15" AcceptsReturn="True" FontFamily="Times New Roman" x:Name="TextNote"/>
+                 Background="LightYellow" FontSize="15" AcceptsReturn="True" FontFamily="Comic Sans MS" x:Name="TextNote"/>
 
         <Button Content="сохранить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="0" Click="SaveNote" />
-        <Button Content="открыть заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="1" Click="OpenNote" />
-        <Button Content="добавить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="2" Click="AddNote" />
+        <Button Content="добавить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="1" Click="AddNote" />
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="3" Name="OtherNotes">
+            <TextBox IsReadOnly="True" FontSize="15" HorizontalContentAlignment="Center" FontFamily="Comic Sans MS" >Заметки</TextBox>
+        </StackPanel>
     </Grid>
 </Window>

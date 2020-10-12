@@ -32,6 +32,10 @@ namespace TODOshca
             //folder path
             pathFolderNote = _data.PathFolder;
             LoadDataInNote(pathFolderNote,temporaryData.ActiveNote);
+
+            //load other notes buttons 
+            checkFolder(_data.PathFolder);
+            createButtons(_data.PathFolder);
         }
 
         #region System saving
@@ -98,20 +102,15 @@ namespace TODOshca
         {
             TextNote.Text = GetDataInFile(pathFile,fileName);
         }
+
         #endregion
+
         private void SaveNote(object sender, RoutedEventArgs e)
         {
             string textNote;
             textNote = TextNote.Text;
 
             saveFile(textNote,pathFolderNote, temporaryData.ActiveNote);
-        }
-
-        private void OpenNote(object sender, RoutedEventArgs e)
-        {
-            Notes notes = new Notes();
-            notes.Show();
-            this.Close();
         }
 
         private void AddNote(object sender, RoutedEventArgs e)
@@ -121,7 +120,60 @@ namespace TODOshca
             this.Close();
         }
 
+        #region go_to_other_notes
+        private int checkNotes(string pathFiles)
+        {
+            string numbersAllFiles = new DirectoryInfo(pathFiles).GetFiles().Length.ToString();
+            return Convert.ToInt32(numbersAllFiles);
+        }
 
+        private void checkFolder(string path)
+        {
+            //folder for save files
+            DirectoryInfo dirInfo = new DirectoryInfo(path);
+            if (!dirInfo.Exists)
+            {
+                dirInfo.Create();
+            }
+        }
 
+        private void createButtons(string pathFiles)
+        {
+            List<string> filesname = Directory.GetFiles(pathFiles, "*.txt").ToList<string>();
+            for (int i = 0; i < checkNotes(pathFiles); i++)
+            {
+
+                var button = new Button();
+
+                button.Content = getNameFile(filesname[i]);
+                button.FontSize = 15;
+                button.FontFamily = new FontFamily("Comic Sans MS");
+
+                button.Background = System.Windows.Media.Brushes.LightYellow;
+
+                //button.Name = getNameFile(filesname[i]);
+
+                button.Click += OpenNote;
+
+                OtherNotes.Children.Add(button);
+            }
+        }
+
+        private string getNameFile(string fullNameFile)
+        {
+            string[] files = fullNameFile.Split('~', '.');
+            return files[files.Length - 2];
+        }
+
+        private void OpenNote(Object sender, EventArgs e)
+        {
+            string fileName = (sender as Button).Content.ToString();
+            temporaryData.ActiveNote = fileName;
+            tempData.SaveActiveNote();
+            MainWindow mainWindow = new MainWindow();
+
+            LoadDataInNote(pathFolderNote, temporaryData.ActiveNote);
+        }
+        #endregion
     }
 }
