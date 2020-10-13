@@ -36,6 +36,8 @@ namespace TODOshca
             //load other notes buttons 
             checkFolder(_data.PathFolder);
             createButtons(_data.PathFolder);
+
+
         }
 
         #region System saving
@@ -49,7 +51,7 @@ namespace TODOshca
             deleteFile(pathSave,fileName);
 
             //write to file 
-            using (FileStream fstream = new FileStream($"{pathSave}\\"+"~"+fileName+".txt", FileMode.OpenOrCreate))
+            using (FileStream fstream = new FileStream($"{pathSave}\\"+"~"+fileName+".rtf", FileMode.OpenOrCreate))//txt => rtf
             {
                 //преобразовать строку в байты 
                 byte[] textInByte = System.Text.Encoding.Default.GetBytes(savingText);
@@ -61,7 +63,7 @@ namespace TODOshca
 
         private void deleteFile(string pathFile,string fileName)
         {
-            FileInfo fileInfo = new FileInfo(pathFile+"\\"+"~"+fileName+".txt");
+            FileInfo fileInfo = new FileInfo(pathFile + "\\" + "~" + fileName + ".rtf");//txt => rtf
             if (checkExistsFile(pathFile,fileName))
             {
                 fileInfo.Delete();
@@ -72,7 +74,7 @@ namespace TODOshca
         {
             if (checkExistsFile(pathFile, fileName))
             {
-                using (FileStream fstream = File.OpenRead($"{pathFile}\\"+"~"+ fileName + ".txt"))
+                using (FileStream fstream = File.OpenRead($"{pathFile}\\"+"~"+ fileName + ".rtf"))//txt => rtf
                 {
                     //преобразовать строку в байты 
                     byte[] textInByte = new byte[fstream.Length];
@@ -94,7 +96,7 @@ namespace TODOshca
 
         private bool checkExistsFile(string pathFile,string fileName)
         {
-            FileInfo fileInfo = new FileInfo(pathFile + "\\" +"~"+ fileName + ".txt");
+            FileInfo fileInfo = new FileInfo(pathFile + "\\" +"~"+ fileName + ".rtf");//txt => rtf
             return fileInfo.Exists;
         }
 
@@ -111,9 +113,7 @@ namespace TODOshca
             textNote = TextNote.Text;
 
             saveFile(textNote,pathFolderNote, temporaryData.ActiveNote);
-
-            checkFolder(_data.PathFolder);
-            createButtons(_data.PathFolder);
+            
         }
 
         private void AddNote(object sender, RoutedEventArgs e)
@@ -138,11 +138,12 @@ namespace TODOshca
             {
                 dirInfo.Create();
             }
+
         }
 
         private void createButtons(string pathFiles)
         {
-            List<string> filesname = Directory.GetFiles(pathFiles, "*.txt").ToList<string>();
+            List<string> filesname = Directory.GetFiles(pathFiles, "*.rtf").ToList<string>();//txt => rtf
             for (int i = 0; i < checkNotes(pathFiles); i++)
             {
 

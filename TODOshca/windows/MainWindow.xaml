@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TODOshca"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="425" Width="800">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="153"/>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="120"/>
             <ColumnDefinition Width="*"/>
@@ -25,10 +25,30 @@
         </Grid.RowDefinitions>
 
         <TextBox Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="6" 
-                 Background="LightYellow" FontSize="15" AcceptsReturn="True" FontFamily="Comic Sans MS" x:Name="TextNote"/>
+              FontSize="15" AcceptsReturn="True" FontFamily="Comic Sans MS" x:Name="TextNote" >
+            <TextBox.Background>
+                <ImageBrush AlignmentX="Right" Stretch="Uniform" ImageSource="/TODOshca;component/Img/Background.png" />
+            </TextBox.Background>
+        </TextBox>
+        <!--
+        <RichTextBox Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="6" 
+              FontSize="15" AcceptsReturn="True" FontFamily="Comic Sans MS" x:Name="TextNote" >
+            <RichTextBox.Resources>
+                <Style TargetType="Control">
+                    <Setter Property="Background">
+                        <Setter.Value>
+                            <ImageBrush AlignmentX="Right" Stretch="Uniform" ImageSource="/TODOshca;component/Img/Background.png" />
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </RichTextBox.Resources>
+                <ImageBrush AlignmentX="Right" Stretch="Uniform" ImageSource="/TODOshca;component/Img/Background.png" />
 
-        <Button Content="сохранить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="0" Click="SaveNote" />
-        <Button Content="добавить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="1" Click="AddNote" />
+        </RichTextBox>
+        -->
+
+        <Button Content="сохранить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="0" Click="SaveNote" Background="AliceBlue" />
+        <Button Content="добавить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="1" Click="AddNote" Background="AliceBlue" />
 
         <StackPanel Grid.Column="0" Grid.Row="1" Grid.RowSpan="4" Name="OtherNotes">
             <TextBox IsReadOnly="True" FontSize="15" HorizontalContentAlignment="Center" FontFamily="Comic Sans MS" >Заметки</TextBox>

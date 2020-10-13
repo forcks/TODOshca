@@ -30,12 +30,15 @@ namespace TODOshca.windows
         private void CreateNote(object sender, RoutedEventArgs e)
         {
             string _fileName = fileName.Text;
-            workWithFiles.SaveFile(_data.PathFolder,"",_fileName);
-            temporaryData.ActiveNote = _fileName;
-            tempData.SaveActiveNote();
-            MainWindow mainWindow = new MainWindow();
-            mainWindow.Show();
-            this.Close();
+            if (_fileName != "" && _fileName != " " && _fileName != null)
+            {
+                workWithFiles.SaveFile(_data.PathFolder, "", _fileName);
+                temporaryData.ActiveNote = _fileName;
+                tempData.SaveActiveNote();
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                this.Close();
+            }
         }
     }
 }

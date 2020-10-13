@@ -1,7 +1,6 @@
 D:\projects\c#\TODOshca\TODOshca\bin\Release\TODOshca.exe.config
 D:\projects\c#\TODOshca\TODOshca\bin\Release\TODOshca.exe
 D:\projects\c#\TODOshca\TODOshca\bin\Release\TODOshca.pdb
-D:\projects\c#\TODOshca\TODOshca\obj\Release\TODOshca.csprojAssemblyReference.cache
 D:\projects\c#\TODOshca\TODOshca\obj\Release\windows\addNote.g.cs
 D:\projects\c#\TODOshca\TODOshca\obj\Release\windows\MainWindow.g.cs
 D:\projects\c#\TODOshca\TODOshca\obj\Release\App.g.cs

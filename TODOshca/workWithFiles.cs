@@ -14,7 +14,7 @@ namespace TODOshca
 
         public void SaveFile(string pathfolder, string textSave,string fileName)
         {
-            path = pathfolder + "\\" + "~" + fileName + ".txt";
+            path = pathfolder + "\\" + "~" + fileName + ".rtf";//txt => rtf
             deleteFile(pathfolder, fileName);
             //write to file
             using (FileStream fstream = new FileStream($"{path}", FileMode.OpenOrCreate))
@@ -28,7 +28,7 @@ namespace TODOshca
 
         public string ReadFile(string pathfolder, string fileName)
         {
-            path = pathfolder + "\\" + "~" + fileName + ".txt";
+            path = pathfolder + "\\" + "~" + fileName + ".rtf";//txt => rtf
 
             using (FileStream fstream = File.OpenRead($"{path}"))
             {
@@ -46,7 +46,7 @@ namespace TODOshca
         //TODO:в MainWindow.xaml.cs точно такие же функции ,их удалить ,а заместо их поставить эти 
         private void deleteFile(string pathFile, string fileName)
         {
-            FileInfo fileInfo = new FileInfo(pathFile + "\\" + "~" + fileName + ".txt");
+            FileInfo fileInfo = new FileInfo(pathFile + "\\" + "~" + fileName + ".rtf");//txt => rtf
             if (checkExistsFile(pathFile, fileName))
             {
                 fileInfo.Delete();
@@ -55,7 +55,7 @@ namespace TODOshca
 
         private bool checkExistsFile(string pathFile, string fileName)
         {
-            FileInfo fileInfo = new FileInfo(pathFile + "\\" + "~" + fileName + ".txt");
+            FileInfo fileInfo = new FileInfo(pathFile + "\\" + "~" + fileName + ".rtf");//txt => rtf
             return fileInfo.Exists;
         }
     }

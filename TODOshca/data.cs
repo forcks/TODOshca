@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using System.IO;
+using System.Windows;
 
 namespace TODOshca
 {
@@ -14,8 +15,10 @@ namespace TODOshca
         public string PathConfigFolder { get; private set; }
         public data()
         {
-            PathFolder = @"C:\Users\kuzme\TODOshca";
-            PathConfigFolder = @"C:\Users\kuzme\TODOshca\config";
+            string userFolder = System.Environment.GetFolderPath(System.Environment.SpecialFolder.UserProfile);
+            //MessageBox.Show(userFolder);
+            PathFolder = userFolder+@"\TODOshca";
+            PathConfigFolder = userFolder+@"\TODOshca\config";
 
             checkFolder(PathFolder);
             checkFolder(PathConfigFolder);

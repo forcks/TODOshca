@@ -20,7 +20,7 @@ namespace TODOshca
         {
             fileName = "ConfigActiveNotes";
 
-            path = _data.PathConfigFolder + "\\" + "~" + fileName + ".txt";
+            path = _data.PathConfigFolder + "\\" + "~" + fileName + ".rtf";//txt => rtf
             FileInfo configActiveNote = new FileInfo(path);
             if (!configActiveNote.Exists)
             {
