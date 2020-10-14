@@ -23,29 +23,20 @@
             <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
+        <!--
         <TextBox Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="6" 
               FontSize="15" AcceptsReturn="True" FontFamily="Comic Sans MS" x:Name="TextNote" >
             <TextBox.Background>
                 <ImageBrush AlignmentX="Right" Stretch="Uniform" ImageSource="/TODOshca;component/Img/Background.png" />
             </TextBox.Background>
         </TextBox>
-        <!--
-        <RichTextBox Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="6" 
-              FontSize="15" AcceptsReturn="True" FontFamily="Comic Sans MS" x:Name="TextNote" >
-            <RichTextBox.Resources>
-                <Style TargetType="Control">
-                    <Setter Property="Background">
-                        <Setter.Value>
-                            <ImageBrush AlignmentX="Right" Stretch="Uniform" ImageSource="/TODOshca;component/Img/Background.png" />
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </RichTextBox.Resources>
-                <ImageBrush AlignmentX="Right" Stretch="Uniform" ImageSource="/TODOshca;component/Img/Background.png" />
-
-        </RichTextBox>
         -->
+        <RichTextBox Grid.Row="1" Grid.RowSpan="4" Grid.Column="1" Grid.ColumnSpan="6" 
+              FontSize="15" AcceptsReturn="True" FontFamily="Comic Sans MS" x:Name="TextNote" Block.LineHeight="1" >
+            <RichTextBox.Background>
+                <ImageBrush AlignmentX="Right" Stretch="Uniform" ImageSource="/TODOshca;component/Img/Background.png" />
+            </RichTextBox.Background>
+        </RichTextBox>
 
         <Button Content="сохранить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="0" Click="SaveNote" Background="AliceBlue" />
         <Button Content="добавить заметку" FontFamily="Comic Sans MS" Grid.Row="0" Grid.Column="1" Click="AddNote" Background="AliceBlue" />

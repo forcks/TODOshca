@@ -26,6 +26,7 @@ namespace TODOshca
         private string pathFolderNote;
         private data _data = new data();
         private temporaryData tempData = new temporaryData();
+        private workWithFiles workWithFiles = new workWithFiles();
         public MainWindow()
         {
             InitializeComponent();
@@ -37,17 +38,17 @@ namespace TODOshca
             checkFolder(_data.PathFolder);
             createButtons(_data.PathFolder);
 
-
         }
 
         #region System saving
-        
 
+
+        /*
         private void saveFile(string savingText, string pathSave, string fileName)
         {
-            /*
-             have to delete file to write data to file repeatedly
-             */
+            
+             //have to delete file to write data to file repeatedly
+             
             deleteFile(pathSave,fileName);
 
             //write to file 
@@ -69,10 +70,10 @@ namespace TODOshca
                 fileInfo.Delete();
             }
         }
-
+        */
         private string GetDataInFile(string pathFile,string fileName)
         {
-            if (checkExistsFile(pathFile, fileName))
+            if (workWithFiles.CheckExistsFile(pathFile, fileName))
             {
                 using (FileStream fstream = File.OpenRead($"{pathFile}\\"+"~"+ fileName + ".rtf"))//txt => rtf
                 {
@@ -94,15 +95,23 @@ namespace TODOshca
             }
         }
 
+        /*
         private bool checkExistsFile(string pathFile,string fileName)
         {
             FileInfo fileInfo = new FileInfo(pathFile + "\\" +"~"+ fileName + ".rtf");//txt => rtf
             return fileInfo.Exists;
         }
-
+        */
         private void LoadDataInNote(string pathFile,string fileName)
         {
-            TextNote.Text = GetDataInFile(pathFile,fileName);
+            //TextNote.Text = GetDataInFile(pathFile,fileName);
+            TextRange text = new TextRange(
+                TextNote.Document.ContentStart,
+                TextNote.Document.ContentEnd
+                );
+            TextNote.Document.Blocks.Clear();
+            TextNote.AppendText(GetDataInFile(pathFile, fileName));
+
         }
 
         #endregion
@@ -110,10 +119,18 @@ namespace TODOshca
         private void SaveNote(object sender, RoutedEventArgs e)
         {
             string textNote;
-            textNote = TextNote.Text;
+            //textNote = TextNote.Text;
 
-            saveFile(textNote,pathFolderNote, temporaryData.ActiveNote);
-            
+            //saveFile(textNote,pathFolderNote, temporaryData.ActiveNote);
+
+            TextRange text = new TextRange(
+                TextNote.Document.ContentStart,
+                TextNote.Document.ContentEnd
+                );
+
+            textNote = text.Text;
+            workWithFiles.SaveFile(pathFolderNote,textNote,temporaryData.ActiveNote);
+
         }
 
         private void AddNote(object sender, RoutedEventArgs e)

@@ -47,13 +47,13 @@ namespace TODOshca
         private void deleteFile(string pathFile, string fileName)
         {
             FileInfo fileInfo = new FileInfo(pathFile + "\\" + "~" + fileName + ".rtf");//txt => rtf
-            if (checkExistsFile(pathFile, fileName))
+            if (CheckExistsFile(pathFile, fileName))
             {
                 fileInfo.Delete();
             }
         }
 
-        private bool checkExistsFile(string pathFile, string fileName)
+        public bool CheckExistsFile(string pathFile, string fileName)
         {
             FileInfo fileInfo = new FileInfo(pathFile + "\\" + "~" + fileName + ".rtf");//txt => rtf
             return fileInfo.Exists;
